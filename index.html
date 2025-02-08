@@ -9,11 +9,12 @@
   <meta property="og:title" content="FemLux - The Femboy Linux Distribution">
   <meta property="og:description" content="La única distribución de Linux para Femboys">
   <meta property="og:image" content="media/log1.png">
-  <meta property="og:url" content="https://tu-dominio.com">
+  <meta property="og:url" content="https://dotva.github.io/FemLux/#">
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="robots" content="index, follow">
   <title>FemLux - The Femboy Linux Distribution</title>
+  <link rel="icon" type="image/x-icon" href="/media/logo.ico">
   <style>
     /* Estilos generales */
     body {
@@ -273,7 +274,7 @@
   <!-- Barra lateral -->
   <div class="sidebar">
     <a href="#" onclick="mostrarSeccion('inicio')">Inicio</a>
-    <a href="#" onclick="mostrarSeccion('documentacion')">Documentación</a>
+    <a href="http://femlux.wikidot.com/" onclick="mostrarSeccion('documentacion')">Documentación</a>
     <a href="#" onclick="mostrarSeccion('descarga')">Descarga</a>
     <a href="#" onclick="mostrarSeccion('autor')">Autor</a>
   </div>
@@ -318,14 +319,14 @@
   <script>
     // Función para cambiar el contenido según la sección seleccionada
     function mostrarSeccion(seccion) {
-      let contenido = document.getElementById("contenido");
-      let secciones = {
+    let contenido = document.getElementById("contenido");
+    let secciones = {
         "inicio": "<h1>Inicio</h1><p>Bienvenido a la página de FemLux, una distribución Linux personalizada con comandos y scripts propios, diseñada para facilitar la vida a usuarios avanzados y novatos.</p>",
-        "documentacion": "<h1>Documentación</h1><p>En esta sección encontrarás toda la documentación necesaria para aprender a utilizar y configurar FemLux, incluyendo ejemplos de comandos y scripts exclusivos.</p>",
-        "descarga": "<h1>Descarga</h1><p>Descarga la ISO de FemLux y comienza a disfrutar de esta distribución única en tu computadora.</p>",
+        "documentacion": "Estás siendo redirigido a la wiki, si no funciona, haz click <a href='http://femlux.wikidot.com/'>aquí</a>",
+        "descarga": "<h1>Descarga</h1><p>Descarga la ISO de FemLux y comienza a disfrutar de esta distribución única en tu computadora. <a href='https://www.mediafire.com/file/5lwjdxzsk3h7ldp/FemLux.ova/file' class='external-link' target='_blank' download>Descargar FemLux OVA</a></p>",
         "autor": "<h1>Autor</h1><p>Desarrollado por <strong>Dotva</strong>. Entra en mi <a href='https://github.com/dotva' class='external-link' target='_blank'>GitHub</a> y sígueme para apoyarme.</p>"
-      };
-      contenido.innerHTML = secciones[seccion];
+    };
+    contenido.innerHTML = secciones[seccion];
     }
 
     // Función para abrir el modal y mostrar la imagen en grande
