@@ -1,231 +1,380 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FemLux - Mi Distribución Linux</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            background: #f3f3f7;
-            color: #333;
-            overflow-x: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="La única distribución de Linux para Femboys">
+  <meta name="keywords" content="femboys, linux, femboy, boykisser, boy, linus, github, bot, distro, free, ubuntu, uwuntu, femlux, gender expression, androgynous, queer, LGBTQ+, transgender, nonbinary, fashion, beauty, gaming, cosplay, femboy fashion, anime femboys, femboy culture, digital art, programming, open source, coding, technology, software development, internet culture, queer fashion, alternative lifestyle, nonconformity, virtual communities, online culture, lgtbi, lgtb, lgtbiq, lgtbiq+">
+  <meta name="author" content="Dotva">
+  <meta property="og:title" content="FemLux - The Femboy Linux Distribution">
+  <meta property="og:description" content="La única distribución de Linux para Femboys">
+  <meta property="og:image" content="media/log1.png">
+  <meta property="og:url" content="https://tu-dominio.com">
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="robots" content="index, follow">
+  <title>FemLux - The Femboy Linux Distribution</title>
+  <style>
+    /* Estilos generales */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      background: linear-gradient(to right, #f3f3f7, #e2e2eb);
+      color: #333;
+      overflow-x: hidden;
+    }
 
-        /* Barra lateral */
-        .sidebar {
-            width: 250px;
-            background: #ff7ab1; /* Rosa pastel */
-            color: white;
-            height: 100vh;
-            padding: 30px 25px;
+    /* Barra lateral */
+    .sidebar {
+      width: 250px;
+      background: #ff7ab1; /* Rosa pastel */
+      color: white;
+      height: 100vh;
+      padding: 30px 25px;
+      position: fixed;
+      font-weight: bold;
+      box-shadow: 3px 0 20px rgba(0, 0, 0, 0.15);
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      transition: background 0.3s ease;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 14px 22px;
+      margin: 12px 0;
+      background: #ff6fb1; /* Rosa más intenso */
+      border-radius: 10px;
+      text-align: center;
+      font-size: 16px;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .sidebar a:hover {
+      background: #ff3399; /* Rosa más oscuro para hover */
+      transform: translateX(5px);
+    }
+
+    /* Efecto Nitro Azul Radiante */
+    .sidebar a:active {
+      background: #00c1ff; /* Azul radiante */
+      box-shadow: 0 0 15px 5px rgba(0, 193, 255, 0.8);
+      transform: scale(1.1);
+    }
+
+    /* Contenido principal */
+    .content {
+      margin-left: 270px;
+      padding: 40px 50px;
+      background: #fff;
+      border-radius: 15px;
+      max-width: 1000px;
+      margin-top: 40px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    h1 {
+      color: #ff7ab1;
+      font-size: 36px;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    /* Estilo para los enlaces */
+    a.external-link {
+      color: #ff7ab1;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    a {
+      color: #f8a7c1; /* Color rosado suave */
+      text-decoration: none; /* Quitar el subrayado */
+      transition: color 0.3s; /* Efecto de transición al pasar el mouse */
+    }
+
+    a:hover {
+      color: #f77f9e; /* Color más oscuro cuando el ratón pasa por encima */
+    }
+
+    a.external-link:hover {
+      color: #ff3399;
+      transform: translateY(-2px);
+    }
+
+    a.external-link:active {
+      color: #00c1ff;
+      transform: scale(1.1);
+    }
+
+    /* Contenedores de imagen con efectos (tamaño reducido) */
+    .image-container {
+      position: relative;
+      width: 100%;
+      height: 300px; /* Altura reducida */
+      margin-bottom: 30px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      cursor: pointer;
+    }
+
+    .image-container:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.5s ease;
+    }
+
+    .image-container img:hover {
+      opacity: 0.9;
+    }
+
+    /* Texto sobre la imagen */
+    .image-container .overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .image-container:hover .overlay {
+      opacity: 1;
+    }
+
+    /* Footer */
+    .footer {
+      font-size: 14px;
+      color: #999;
+      text-align: center;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 30px;
+      transition: transform 0.3s ease;
+    }
+
+    .footer:hover {
+      transform: translateY(3px);
+    }
+
+    .popup {
             position: fixed;
-            font-weight: bold;
-            box-shadow: 3px 0 20px rgba(0, 0, 0, 0.15);
-            border-top-right-radius: 20px;
-            border-bottom-right-radius: 20px;
-        }
-
-        .sidebar a {
-            display: block;
+            right: 20px;
+            bottom: 20px;
+            background-color: #333;
             color: white;
-            text-decoration: none;
-            padding: 14px 22px;
-            margin: 12px 0;
-            background: #ff6fb1; /* Rosa más intenso */
-            border-radius: 10px;
-            text-align: center;
-            font-size: 16px;
-            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .sidebar a:hover {
-            background: #ff3399; /* Rosa más oscuro para hover */
-            transform: translateX(5px);
-        }
-
-        /* Efecto Nitro Azul Radiante */
-        .sidebar a:active {
-            background: #00c1ff; /* Azul radiante */
-            box-shadow: 0 0 15px 5px rgba(0, 193, 255, 0.8); /* Brillo azul */
-            transform: scale(1.1);
-        }
-
-        /* Contenido principal */
-        .content {
-            margin-left: 270px;
-            padding: 40px 50px;
-            background: #fff;
-            border-radius: 15px;
-            max-width: 1000px;
-            margin-top: 40px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        h1 {
-            color: #ff7ab1; /* Rosa pastel */
-            font-size: 36px;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
-        }
-
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 40px;
-        }
-
-        /* Estilo para los enlaces */
-        a.external-link {
-            color: #ff7ab1;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        a.external-link:hover {
-            color: #ff3399;
-            transform: translateY(-2px);
-        }
-
-        a.external-link:active {
-            color: #00c1ff;
-            transform: scale(1.1);
-        }
-
-        /* Efecto de imagen */
-        .image-container {
-            position: relative;
-            width: 100%;
-            height: 450px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.5s ease;
-        }
-
-        .image-container:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 0.5s ease;
-        }
-
-        .image-container img:hover {
-            opacity: 0.8;
-        }
-
-        /* Texto sobre la imagen */
-        .image-container .overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 28px;
-            font-weight: bold;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transform: translateX(100%);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
-
-        .image-container:hover .overlay {
+        .popup.show {
             opacity: 1;
+            transform: translateX(0);
         }
 
-        /* Footer */
-        .footer {
-            font-size: 14px;
-            color: #999;
-            text-align: center;
-            padding: 20px;
-            background: #f9f9f9;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 30px;
-            transition: transform 0.3s ease;
-        }
 
-        .footer:hover {
-            transform: translateY(3px);
-        }
+    /* Modal para ampliar imágenes */
+    #modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+      align-items: center;
+      justify-content: center;
+    }
 
-        /* Estilo para dispositivos pequeños */
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 220px;
-                padding: 20px 15px;
-            }
+    #modal-img {
+      max-width: 90%;
+      max-height: 90%;
+      border: 5px solid #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      transition: transform 0.3s ease;
+    }
 
-            .content {
-                margin-left: 0;
-                padding: 20px;
-            }
+    #modal .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1001;
+      transition: color 0.3s ease;
+    }
 
-            .sidebar a {
-                font-size: 16px;
-            }
+    #modal .close:hover {
+      color: #ff3399;
+    }
 
-            h1 {
-                font-size: 30px;
-            }
+    /* Estilo para dispositivos pequeños */
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 220px;
+        padding: 20px 15px;
+      }
 
-            p {
-                font-size: 16px;
-            }
-        }
-    </style>
+      .content {
+        margin-left: 0;
+        padding: 20px;
+      }
+
+      .sidebar a {
+        font-size: 16px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
+    
+  </style>
 </head>
 <body>
-    <div class="sidebar">
-        <a href="#" onclick="mostrarSeccion('inicio')">Inicio</a>
-        <a href="#" onclick="mostrarSeccion('documentacion')">Documentación</a>
-        <a href="#" onclick="mostrarSeccion('descarga')">Descarga</a>
-        <a href="#" onclick="mostrarSeccion('autor')">Autor</a>
+  <!-- Barra lateral -->
+  <div class="sidebar">
+    <a href="#" onclick="mostrarSeccion('inicio')">Inicio</a>
+    <a href="#" onclick="mostrarSeccion('documentacion')">Documentación</a>
+    <a href="#" onclick="mostrarSeccion('descarga')">Descarga</a>
+    <a href="#" onclick="mostrarSeccion('autor')">Autor</a>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="content" id="contenido">
+    <h1>Bienvenido a FemLux</h1>
+    <p>
+      FemLux es una distribución Linux pensada para quienes buscan una experiencia única y fluida. Con sus propios comandos y scripts, se adapta a las necesidades de usuarios novatos y avanzados. Además, incluye referencias a comandos de Windows para facilitar la transición entre sistemas operativos.
+    </p>
+
+    <!-- Imágenes reducidas que se amplían al hacer clic -->
+    <div class="image-container">
+      <img src="media/log1.png" alt="Imagen 1" onclick="openModal(this.src, this.alt)">
+      <div class="overlay">FemLux (Femboy Linux)</div>
     </div>
-    <div class="content" id="contenido">
-        <h1>Bienvenido a FemLux</h1>
-        <p>FemLux es una distribución Linux pensada para quienes buscan una experiencia única y fluida. Con sus propios comandos y scripts, se adapta a las necesidades tanto de usuarios novatos como avanzados. Además, FemLux incluye referencias a comandos de Windows y otras herramientas populares para facilitar la transición entre sistemas operativos.</p>
+
+    <div class="image-container">
+      <img src="media/log2.png" alt="Imagen 2" onclick="openModal(this.src, this.alt)">
+      <div class="overlay">Una distribución Linux para todos</div>
+    </div>
+
+    <h2>Más sobre FemLux</h2>
+    <p>
+      FemLux cuenta con un conjunto de comandos y scripts personalizados para facilitar tareas comunes y optimizar el sistema. Además, incluye referencias a comandos de Windows, lo que facilita el uso para quienes estén acostumbrados a ese entorno.
+    </p>
+
+    <h2>Revisa mi GitHub</h2>
+    <p>
+      Desarrollado por <strong>Dotva</strong>. Entra en mi <a href="https://github.com/dotva" class="external-link" target="_blank">GitHub</a> y sígueme para apoyarme.
+    </p>
+
+    <div class="footer">&copy; 2025 FemLux Linux. Todos los derechos reservados.</div>
+  </div>
+
+  <!-- Modal para ampliar imágenes -->
+  <div id="modal" onclick="closeModal()">
+    <span class="close" onclick="closeModal(event)">&times;</span>
+    <img id="modal-img" src="" alt="">
+  </div>
+
+  <script>
+    // Función para cambiar el contenido según la sección seleccionada
+    function mostrarSeccion(seccion) {
+      let contenido = document.getElementById("contenido");
+      let secciones = {
+        "inicio": "<h1>Inicio</h1><p>Bienvenido a la página de FemLux, una distribución Linux personalizada con comandos y scripts propios, diseñada para facilitar la vida a usuarios avanzados y novatos.</p>",
+        "documentacion": "<h1>Documentación</h1><p>En esta sección encontrarás toda la documentación necesaria para aprender a utilizar y configurar FemLux, incluyendo ejemplos de comandos y scripts exclusivos.</p>",
+        "descarga": "<h1>Descarga</h1><p>Descarga la ISO de FemLux y comienza a disfrutar de esta distribución única en tu computadora.</p>",
+        "autor": "<h1>Autor</h1><p>Desarrollado por <strong>Dotva</strong>. Entra en mi <a href='https://github.com/dotva' class='external-link' target='_blank'>GitHub</a> y sígueme para apoyarme.</p>"
+      };
+      contenido.innerHTML = secciones[seccion];
+    }
+
+    // Función para abrir el modal y mostrar la imagen en grande
+    function openModal(src, alt) {
+      var modal = document.getElementById("modal");
+      var modalImg = document.getElementById("modal-img");
+      modalImg.src = src;
+      modalImg.alt = alt;
+      modal.style.display = "flex";
+    }
+
+    // Función para cerrar el modal
+    function closeModal(event) {
+      if (event) {
+        event.stopPropagation();
+      }
+      var modal = document.getElementById("modal");
+      modal.style.display = "none";
+    }
+  </script>
+
+  <script>
+    const messages = [
+        "¡Dale estilo a tu sistema con FemLux!",
+        "FemLux está aquí: tu Linux, tu estilo.",
+        "Transforma tu PC con FemLux. <a href='#descarga' onclick='mostrarSeccion(\"descarga\")'>¡Descárgalo ahora!</a>",
+        "FemLux: El poder de Linux con tu toque personal.",
+        "Descubre FemLux, la distro pensada para ti.",
+        "Tu estilo, tu sistema. Únete a FemLux hoy.",
+        "¡Haz que tu Linux hable por ti con FemLux!",
+        "FemLux: La distro que entendemos.",
+        "No solo es Linux, es tu estilo en cada línea de código."
+    ];
+    
+    function showPopup() {
+        const popup = document.createElement("div");
+        popup.className = "popup";
+        popup.innerHTML = messages[Math.floor(Math.random() * messages.length)];
+        document.body.appendChild(popup);
         
-        <!-- Imagen con efectos -->
-        <div class="image-container">
-            <img src="media/log1.png" alt="Imagen 1">
-            <div class="overlay">FemLux Linux</div>
-        </div>
+        setTimeout(() => popup.classList.add("show"), 100);
+        setTimeout(() => {
+            popup.classList.remove("show");
+            setTimeout(() => popup.remove(), 500);
+        }, 5000);
+    }
+    
+    setInterval(showPopup, 60000); // Cada minuto
+  </script>
 
-        <div class="image-container">
-            <img src="media/log2.png" alt="Imagen 2">
-            <div class="overlay">Distribución Linux para todos</div>
-        </div>
-
-        <h2>Más sobre FemLux</h2>
-        <p>FemLux cuenta con un conjunto de comandos y scripts personalizados para facilitar tareas comunes y optimizar el sistema. Además, incluye referencias a comandos de Windows, lo que facilita el uso para quienes estén acostumbrados a ese entorno.</p>
-
-        <h2>Revisa mi GitHub</h2>
-        <p>Desarrollado por <strong>Dotva</strong>. Entra en mi <a href='https://github.com/dotva' class='external-link' target='_blank'>GitHub</a> y sigueme para apoyarme.</p>
-
-        <div class="footer">&copy; 2025 FemLux Linux. Todos los derechos reservados.</div>
-    </div>
-
-    <script>
-        function mostrarSeccion(seccion) {
-            let contenido = document.getElementById("contenido");
-            let secciones = {
-                "inicio": "<h1>Inicio</h1><p>Bienvenido a la página de FemLux, una distribución Linux personalizada con comandos y scripts propios, diseñada para facilitar la vida a los usuarios avanzados y novatos.</p>",
-                "documentacion": "<h1>Documentación</h1><p>En esta sección, encontrarás toda la documentación necesaria para aprender a utilizar y configurar FemLux, incluyendo ejemplos de comandos y scripts exclusivos.</p>",
-                "descarga": "<h1>Descarga</h1><p>Descarga la ISO de FemLux y comienza a disfrutar de esta distribución única en tu computadora.</p>",
-                "autor": "<h1>Autor</h1><p>Desarrollado por <strong>Dotva</strong>. Entra en mi <a href='https://github.com/dotva' class='external-link' target='_blank'>GitHub</a> y sigueme para apoyarme.</p>"
-            };
-            contenido.innerHTML = secciones[seccion];
-        }
-    </script>
 </body>
 </html>
